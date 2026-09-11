@@ -1,0 +1,63 @@
+<div class="lookup-container">
+  <h2>Consulta de Documentos</h2>
+  
+  <div class="search-box">
+    <input 
+      type="text" 
+      [(ngModel)]="identificacion" 
+      placeholder="Ingrese Cédula o NIT" 
+      (keyup.enter)="lookup()"
+    />
+    <button (click)="lookup()" [disabled]="loading">
+      {{ loading ? 'Consultando...' : 'Consultar' }}
+    </button>
+  </div>
+
+  <div *ngIf="message" class="message-banner">
+    <p>{{ message }}</p>
+  </div>
+
+  <!-- Resultado RUES -->
+  <div *ngIf="company" class="result-card">
+    <h3>Información Comercial (RUES)</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Campo</th><th>Valor</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of company | keyvalue">
+          <td><strong>{{ item.key }}</strong></td>
+          <td>{{ item.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Botón para alternar a VigenciaRUT aunque RUES tenga datos -->
+    <div *ngIf="vigenciaRut" class="alternative-action" style="margin-top: 15px;">
+      <button class="btn-alt" (click)="toggleVigenciaRut()">
+        {{ mostrarVigenciaRutDetalle ? 'Ocultar Soporte VigenciaRUT' : 'Probar / Ver con VigenciaRUT (Alternativa)' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Soporte Avanzado (VigenciaRUT) condicionado al botón -->
+  <div *ngIf="vigenciaRut && mostrarVigenciaRutDetalle" class="result-card alternative-card">
+    <h3>Soporte Avanzado (VigenciaRUT)</h3>
+    <table class="data-table" *ngIf="vigenciaRut.datos; else rawHtml">
+      <thead>
+        <tr><th>Atributo</th><th>Detalle</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of vigenciaRut.datos | keyvalue">
+          <td><strong>{{ item.key }}</strong></td>
+          <td>{{ item.value }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <ng-template #rawHtml>
+      <p>Datos brutos del respaldo:</p>
+      <pre>{{ vigenciaRut | json }}</pre>
+    </ng-template>
+  </div>
+</div>

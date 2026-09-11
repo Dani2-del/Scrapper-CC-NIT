@@ -1,0 +1,111 @@
+.lookup-container {
+  max-width: 760px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #18181b; /* Fondo oscuro tipo panel */
+  color: #f3f4f6; /* Texto claro */
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #27272a;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.lookup-container h2 {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #27272a;
+  padding-bottom: 10px;
+}
+
+.lookup-input-group {
+  margin-bottom: 20px;
+}
+
+.lookup-input-group label {
+  display: block;
+  font-weight: 600;
+  color: #d1d5db;
+  margin-bottom: 8px;
+}
+
+.lookup-input {
+  width: 100%;
+  padding: 12px;
+  background-color: #09090b; /* Fondo del input oscuro */
+  border: 1px solid #3f3f46;
+  color: #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.lookup-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.lookup-btn {
+  background-color: #2563eb;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.lookup-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.lookup-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background-color: #09090b;
+}
+
+.lookup-table th, 
+.lookup-table td {
+  border: 1px solid #27272a;
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 14px;
+  color: #e4e4e7;
+}
+
+.lookup-table th {
+  background-color: #18181b;
+  color: #f4f4f5;
+  font-weight: 600;
+}
+
+.lookup-th-width {
+  width: 40%;
+}
+
+.lookup-card {
+  margin-top: 24px;
+  padding: 20px;
+  background-color: #09090b; /* Tarjeta oscura */
+  border: 1px solid #27272a;
+  border-radius: 8px;
+}
+
+.lookup-card h3 {
+  color: #60a5fa;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212 !important; /* Color de fondo oscuro de la página */
+  color: #f3f4f6;
+}
